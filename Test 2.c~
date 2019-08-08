@@ -1,0 +1,24 @@
+#include <allegro.h>
+#include<stdio.h>
+
+
+#define RADIUS 50			// disc radius
+
+int main()
+{
+int x = 100, y = 100, col = 4;		// RED color
+	
+	allegro_init();
+	install_keyboard();
+
+	set_color_depth(8);		// VGA mode (8 bits)
+	set_gfx_mode(GFX_SAFE,640,480,0,0);
+	clear_to_color(screen, 0);	// black background
+
+	circlefill(screen,  x, y, RADIUS, col);
+	
+	readkey(); 			// wait for any key
+	allegro_exit();
+	return 0;
+
+}

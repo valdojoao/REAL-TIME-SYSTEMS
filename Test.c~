@@ -1,0 +1,42 @@
+#include <allegro.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+
+
+
+void wait(int seconds)
+{
+	clock_t endwait;
+	endwait = clock() + seconds * CLOCKS_PER_SEC;
+	while (clock()< endwait){}
+}
+
+
+int main()
+{
+int x = 100, y = 100, col = 4;		// RED color
+	
+	allegro_init();
+	install_keyboard();
+
+	set_color_depth(8);		// VGA mode (8 bits)
+	set_gfx_mode(GFX_SAFE,640,480,0,0);
+	clear_to_color(screen, 0);	// black background
+
+	int n;
+	
+	for(n=10; n>=0; n--)
+	{
+		textprintf_ex(screen,  font, 485, 30, makecol(255,255,255),
+		5, "%d ", n);
+		wait(1);
+	}
+	
+	
+	readkey(); 			// wait for any key
+	allegro_exit();
+	return 0;
+
+}
